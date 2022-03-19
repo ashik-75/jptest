@@ -8,9 +8,6 @@ console.log({ allData });
 function DataTable() {
     const router = useRouter();
 
-    const handleDetails = (id) => {
-        router.push(`/person/${id}`);
-    };
     return (
         <div>
             <div className="overflow-auto">
