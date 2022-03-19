@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
+import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 
 function Item() {
     return (
@@ -31,7 +31,13 @@ function Carousel() {
             setSlide((val) => val + 1);
             setCurrentValue((value) => value - 225);
         }
+
+        if (slide === 2) {
+            setCurrentValue(0);
+        }
     };
+
+    console.log({ slide });
 
     return (
         <div className="overflow-hidden relative">
