@@ -3,8 +3,6 @@ import React from 'react';
 import allData from '../data/allData';
 import Person from './Person';
 
-console.log({ allData });
-
 function DataTable() {
     const router = useRouter();
 
