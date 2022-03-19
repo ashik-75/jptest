@@ -37,9 +37,9 @@ function DataTable() {
                     </thead>
                     {/* <br /> */}
                     <tbody className="divide-y-2">
-                        {[1, 2, 3, 4].map((dt) => (
-                            <tr key={dt} className="p-4  shadow-lg">
-                                <td className="p-3 whitespace-nowrap tracking-wide">{dt}</td>
+                        {allData.map((dt) => (
+                            <tr key={dt.id} className="p-4  shadow-lg">
+                                <td className="p-3 whitespace-nowrap tracking-wide">{dt.id}</td>
 
                                 <td className="p-3 whitespace-nowrap tracking-wide">
                                     <Person />
@@ -61,9 +61,9 @@ function DataTable() {
                                         style={{ border: '1px solid red' }}
                                         className="py-2 outline-none bg-white  px-4 cursor-pointer  text-rose-600 border-none text-sm rounded"
                                         type="button"
-                                        onClick={() => handleDetails(dt.id)}
+                                        onClick={() => router.push(`/person/${dt.id}`)}
                                     >
-                                        view Details
+                                        view Details - {dt.name}
                                     </button>
                                 </td>
                             </tr>

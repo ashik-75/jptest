@@ -10,7 +10,7 @@ const person = () => {
         <div>
             <div>single person - {id}</div>
             <button type="button">
-                <Link href="/play">back</Link>
+                <Link href="/">back</Link>
             </button>
         </div>
     );
