@@ -1,7 +1,16 @@
+import { useRouter } from 'next/router';
 import React from 'react';
+import allData from '../data/allData';
 import Person from './Person';
 
+console.log({ allData });
+
 function DataTable() {
+    const router = useRouter();
+
+    const handleDetails = (id) => {
+        router.push(`/person/${id}`);
+    };
     return (
         <div>
             <div className="overflow-auto">
@@ -28,7 +37,7 @@ function DataTable() {
                     </thead>
                     {/* <br /> */}
                     <tbody className="divide-y-2">
-                        {[1, 2, 3, 4, 5].map((dt) => (
+                        {[1, 2, 3, 4].map((dt) => (
                             <tr key={dt} className="p-4  shadow-lg">
                                 <td className="p-3 whitespace-nowrap tracking-wide">{dt}</td>
 
@@ -52,6 +61,7 @@ function DataTable() {
                                         style={{ border: '1px solid red' }}
                                         className="py-2 outline-none bg-white  px-4 cursor-pointer  text-rose-600 border-none text-sm rounded"
                                         type="button"
+                                        onClick={() => handleDetails(dt.id)}
                                     >
                                         view Details
                                     </button>
