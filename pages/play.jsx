@@ -1,39 +1,54 @@
-import Link from 'next/link';
+/* eslint-disable no-unused-expressions */
 import React from 'react';
+import Slider from '../components/Slider';
 
-const data = [
+const personList = [
     {
         id: 1,
-        name: 'alex',
+        name: 'Alex Hales',
+        country: 'Usa',
     },
     {
         id: 2,
-        name: 'alex',
+        name: 'James',
+        country: 'Usa',
     },
     {
         id: 3,
-        name: 'alex',
+        name: 'Sarah',
+        country: 'Usa',
     },
     {
         id: 4,
-        name: 'alex',
+        name: 'Tim Berns ley',
+        country: 'Usa',
     },
     {
         id: 5,
-        name: 'alex',
+        name: 'Alex Hales',
+        country: 'Usa',
+    },
+    {
+        id: 6,
+        name: 'James',
+        country: 'Usa',
+    },
+    {
+        id: 7,
+        name: 'Sarah',
+        country: 'Usa',
+    },
+    {
+        id: 8,
+        name: 'Tim Berns ley',
+        country: 'Usa',
     },
 ];
 
 const play = () => {
     return (
         <div>
-            {data.map((dt) => (
-                <div>
-                    <Link href={`/person/${dt.id}`} key={dt.id}>
-                        {dt.name}
-                    </Link>
-                </div>
-            ))}
+            <Slider personList={personList} />
         </div>
     );
 };

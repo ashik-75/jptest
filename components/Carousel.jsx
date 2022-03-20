@@ -27,7 +27,7 @@ function Carousel() {
             setSlide((val) => val - 1);
             setCurrentValue((value) => value + 225);
         }
-        if (direction === 'right' && slide < 2) {
+        if (direction === 'right' && slide < 3) {
             setSlide((val) => val + 1);
             setCurrentValue((value) => value - 225);
         }
@@ -35,9 +35,11 @@ function Carousel() {
         if (slide === 2) {
             setCurrentValue(0);
         }
-    };
 
-    console.log({ slide });
+        // if (slide === 0) {
+        //     setCurrentValue(3);
+        // }
+    };
 
     return (
         <div className="overflow-hidden relative">
@@ -56,7 +58,7 @@ function Carousel() {
             />
             <BsChevronRight
                 onClick={() => handleClick('right')}
-                className="font-bold cursor-pointer hover:scale-150 hover:font-extrabold text-slate-800 text-3xl absolute right-5 top-[40%]"
+                className="font-bold cursor-pointer hover:scale-150 hover:font-extrabold text-slate-800 text-[50px] absolute right-5 top-[20%]"
             />
         </div>
     );
