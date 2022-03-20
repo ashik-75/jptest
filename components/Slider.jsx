@@ -39,11 +39,11 @@ function Slider({ personList }) {
 
             <BsChevronLeft
                 onClick={() => handleSlider('left')}
-                className=" absolute top-2 left-2 font-extrabold text-4xl text-white "
+                className=" absolute top-2 left-2 font-extrabold text-4xl text-white cursor-pointer "
             />
             <BsChevronRight
                 onClick={() => handleSlider('right')}
-                className=" absolute top-2 right-2 font-extrabold text-4xl text-white "
+                className=" absolute top-2 right-2 font-extrabold text-4xl text-white cursor-pointer "
             />
         </div>
     );
