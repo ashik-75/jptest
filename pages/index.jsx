@@ -1,23 +1,42 @@
-import React from 'react';
-import Carousel from '../components/Carousel';
-import DataTable from '../components/DataTable';
-import Searching from '../components/Searching';
-import Topbar from '../components/Topbar';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import Racket from '../components/Racket';
 
 const index = () => {
+    const [data, setData] = useState([]);
+
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(process.env.NEXT_PUBLIC_root_url);
+
+                setData(response?.data);
+            } catch (err) {
+                setError(err.message);
+            }
+        };
+
+        fetchData();
+    }, []);
+
     return (
         <div className="p-5">
-            <Topbar />
-            <div className="text-center text-rose-600 my-2 text-2xl">Doctors</div>
-            <div className="bg-pink-600 my-5 h-[1px]" />
-
-            <Carousel />
-
-            <Searching />
-
-            <DataTable />
+            {error && <div>{error}</div>}
+            <Racket posts={data} />
         </div>
     );
 };
 
 export default index;
+
+// export async function getServerSideProps() {
+//     const posts = await axios.get('https://jsonplaceholder.typicode.com/posts');
+
+//     return {
+//         props: {
+//             posts: posts?.data,
+//         },
+//     };
+// }
