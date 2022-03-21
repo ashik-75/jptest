@@ -1,42 +1,23 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Racket from '../components/Racket';
 
-const index = () => {
-    const [data, setData] = useState([]);
-
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(process.env.NEXT_PUBLIC_root_url);
-
-                setData(response?.data);
-            } catch (err) {
-                setError(err.message);
-            }
-        };
-
-        fetchData();
-    }, []);
-
+const index = ({ posts }) => {
     return (
         <div className="p-5">
-            {error && <div>{error}</div>}
-            <Racket posts={data} />
+            <Racket posts={posts} />
         </div>
     );
 };
 
 export default index;
 
-// export async function getServerSideProps() {
-//     const posts = await axios.get('https://jsonplaceholder.typicode.com/posts');
+export async function getServerSideProps() {
+    const posts = await axios.get(process.env.NEXT_PUBLIC_root_url);
 
-//     return {
-//         props: {
-//             posts: posts?.data,
-//         },
-//     };
-// }
+    return {
+        props: {
+            posts: posts?.data,
+        },
+    };
+}
